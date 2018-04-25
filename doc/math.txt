@@ -1,0 +1,92 @@
+*math.txt*   Global plugin to do math operations in Vim
+
+==============================================================================
+CONTENTS                                                      *Math-contents*
+
+    1. Intro ........................... |MathIntro|
+    2. Usage ........................... |MathUsage|
+    3. Configuration ................... |MathConfig|
+    4. Bugs ............................ |MathBugs|
+    5. Contributing .................... |MathContributing|
+    6. Changelog ....................... |MathChangelog|
+
+==============================================================================
+INTRO                                                             *MathIntro*
+
+Math.vim is a quick and dirty script to do common mathematic operations
+without leaving Vim.
+
+==============================================================================
+USAGE                                                             *MathUsage*
+
+    :VimSum
+
+After pressing <Enter>, a sumatory of all selected numbers will be calculated.
+
+Wondering how to do your <favorite> operation?, go to |MathContributing|.
+
+==============================================================================
+CONFIGURATION                                                    *MathConfig*
+
+These options should be set in your .vimrc file.
+
+g:clipboard                                         *MathConfig-clipboard*
+    Default clipboard
+
+    Use this option to specify the target clipboard. Default to 'all'
+
+    Acceptable Values: "none", "vim", "external", "all". >
+        let g:clipboard = 'all'
+<
+    none:     sprunge url will only be shown in the status line
+    vim:      sprunge url will only be copied to the integrated vim clipboard
+              (unnamed register, ")
+    external: sprunge url will only be copied to external clipboard utilities
+              (currently xclip, xsel, pbcopy)
+    all:      sprunge url will be copied to all possible clipboards
+
+
+g:math_map                                                *MathConfig-map*
+    Default mapping
+
+    Use this option to configure the default mapping: >
+
+        let g:math_map = '<Leader>S'
+<
+    Alternatively it can be assigned directly to the <Plug> action: >
+
+        nmap <Leader>S <Plug>MathSum
+        xmap <Leader>S <Plug>MathSum
+<
+    Or disabled completely by using an internal mapping: >
+
+        nmap <Plug>DisableMathMapping <Plug>MathSum
+        xmap <Plug>DisableMathMapping <Plug>MathSum
+<
+    NOTE: Math works on the entire buffer in normal mode and on the
+          selected area on visual mode.
+
+==============================================================================
+BUGS                                                               *MathBugs*
+
+If you find a bug please post it on the issue tracker:
+
+    https://github.com/javier-lopez/math.vim/issues
+
+==============================================================================
+CONTRIBUTING                                               *MathContributing*
+
+I created this plugin while waiting for a meeting, it does what I need, if you
+need something else the best way to get it is to send a patch, fork it and send
+your pull request =)
+
+GitHub: http://github.com/javier-lopez/math.vim
+
+==============================================================================
+CHANGELOG                                                     *MathChangelog*
+
+v0.0.1
+    * Initial release.
+
+==============================================================================
+" vim: ft=help
